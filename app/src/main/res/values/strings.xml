@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FilmExplorer</string>
+    <string name="discover_button_text">Discover Movies</string>
+    <string name="title_activity_discover_movies">DiscoverMovies</string>
+</resources>
