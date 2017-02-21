@@ -36,8 +36,7 @@ public class DiscoverListAdapter extends ArrayAdapter<MovieInfo> {
 
         ImageView thumb = (ImageView) listItemView.findViewById(R.id.poster_thumb);
         Picasso.with(getContext()).load("https://image.tmdb.org/t/p/w500" + movieList.getmPosterPath()).resize(250,250).centerCrop().into(thumb);
-        TextView movieTitle = (TextView) listItemView.findViewById(R.id.title);
-        movieTitle.setText(movieList.getmTitle());
+
 
 
         return listItemView;

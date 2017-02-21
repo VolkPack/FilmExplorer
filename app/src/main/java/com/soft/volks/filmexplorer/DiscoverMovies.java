@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -29,40 +31,10 @@ public class DiscoverMovies extends AppCompatActivity {
         setView(page);
         final View view;
         view = getLayoutInflater().inflate(R.layout.discover_page_footer, null);
-        ListView listView = (ListView) findViewById(R.id.activity_discover_movies);
-        listView.addFooterView(view);
+        GridView listView = (GridView) findViewById(R.id.activity_discover_movies);
 
 
 
-        final TextView pageNumber = (TextView) findViewById(R.id.page_number);
-        pageNumber.setText(Integer.toString(page));
-
-        ImageButton forward = (ImageButton) findViewById(R.id.forward);
-        ImageButton back = (ImageButton) findViewById(R.id.back);
-
-
-
-        forward.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                page = page + 1;
-                pageNumber.setText(Integer.toString(page));
-                setView(page);
-            }
-        });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(page == 1){
-                    //do nothing
-                }else{
-                    page = page - 1;
-                    setView(page);
-                }
-                pageNumber.setText(Integer.toString(page));
-            }
-        });
     }
 
     public void setView(int page){
@@ -75,7 +47,7 @@ public class DiscoverMovies extends AppCompatActivity {
             e.printStackTrace();
         }
         final DiscoverListAdapter listAdapter = new DiscoverListAdapter(this, stuff);
-        final ListView listView = (ListView) findViewById(R.id.activity_discover_movies);
+        final GridView listView = (GridView) findViewById(R.id.activity_discover_movies);
         listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
